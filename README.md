@@ -1,5 +1,14 @@
-<!---Пример кода-->
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Discord.py+разработчик,+студент.)](https://git.io/typing-svg)
+<!-- BLOG-POST-LIST:START -->
 
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1)](https://git.io/streak-stats)
+
+<!-- BLOG-POST-LIST:END -->
+
+
+
+
+### ![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=vu4eke&theme=solarized_dark) 
+![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=vu4eke&theme=solarized_dark)
+![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vu4eke&theme=solarized_dark)
+![](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=vu4eke&theme=solarized_dark)
+![](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=vu4eke&theme=solarized_dark)
