@@ -1,18 +1,16 @@
-![](https://cdn.discordapp.com/attachments/1176168184768892983/1178375213369536566/rounded-in-photoretrica.png?ex=6575ea70&is=65637570&hm=13f55eace0902574965ddc4dab15da0ec7ce75d0c71defeb60e1b20a713bc2d7&)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Header</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
+<div class="header">
+    <h1>My GitHub Profile</h1>
+    <p> Ya krutoy specialist !</p>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-### ![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=vu4eke&theme=solarized_dark) 
-![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=vu4eke&theme=solarized_dark)
-![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vu4eke&theme=solarized_dark)
-![](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=vu4eke&theme=solarized_dark)
-![](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=vu4eke&theme=solarized_dark)
+</body>
+</html>
