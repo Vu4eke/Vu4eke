@@ -43,12 +43,6 @@
 ###
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=Vu4eke&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="220" alt="streak graph"  />
-</div>
-
-###
-
-<div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=Vu4eke&radius=16&theme=github-dark&area=true&order=5&hide_border=true&hide_title=false&custom_title=%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20Zenisky" height="300" alt="activity-graph graph"  />
 </div>
 
