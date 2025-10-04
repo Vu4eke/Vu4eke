@@ -1,9 +1,5 @@
 name: Metrics
 on:
-  push:
-    branches: ["main"]
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -16,38 +12,18 @@ jobs:
       - name: Update metrics
         uses: lowlighter/metrics@latest
         with:
-          # Указываем ваш токен для доступа к данным
           token: ${{ secrets.METRICS_TOKEN }}
-          
-          # ОСНОВНЫЕ НАСТРОЙКИ
-          user: ваш-никнейм-на-github # Замените на свой!
+          user: ваш-никнейм-на-github
           template: classic
           base: header, activity, community, repositories, metadata
-          config_timezone: Europe/Moscow
-
-          # ВКЛЮЧАЕМ ПЛАГИНЫ ЧЕРЕЗ ОТДЕЛЬНЫЕ ПАРАМЕТРЫ
+          
+          # Только быстрые плагины для теста
           plugin_achievements: yes
-          plugin_achievements_secrets: yes
-          plugin_achievements_display: compact
-          plugin_achievements_limit: 0
-
-          plugin_habits: yes
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
-          plugin_habits_from: 200
-
-          plugin_languages: yes
-          plugin_languages_limit: 8
-          plugin_languages_analysis_timeout: 15
-          plugin_languages_categories: programming, markup
-          plugin_languages_sections: most-used
-
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
-
-          # Дополнительные настройки для ускорения
-          config_animations: false
-          repositories: 50 # Ограничиваем количество репозиториев для анализа
+          
+          # Ограничиваем данные для ускорения
+          repositories: 30
+          plugin_habits_from: 50
 
       - name: Commit and push changes
         run: |
