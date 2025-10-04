@@ -8,11 +8,13 @@ jobs:
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
 
       - name: 🦑 Generate metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: github-metrics.svg
+          filename: metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header
           base_indepth: yes
@@ -51,14 +53,6 @@ jobs:
             h2 { display: none !important; }
             .match:not(:last-child) { padding-bottom: 4px; }
           output_action: commit
+          committer_token: ${{ secrets.METRICS_TOKEN }}
           committer_branch: main
           committer_message: "Update GitHub metrics"
-
-      - name: 🔍 Debug - Check files
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Files in current directory:"
-          ls -la
-          echo "Looking for SVG files:"
-          find . -name "*.svg" -type f 2>/dev/null || echo "No SVG files found"
