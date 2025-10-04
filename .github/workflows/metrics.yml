@@ -9,21 +9,56 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🦑 Generate basic metrics
+      - name: 🦑 Generate metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.svg
+          filename: github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header
-          config_order: base.header, isocalendar, languages
+          base_indepth: yes
+          config_order: base.header, isocalendar, languages, notable, discussions, topics, anilist, achievements, sponsors, splatoon
           plugin_isocalendar: yes
           plugin_languages: yes
-          plugin_languages_ignored: html, css
-          plugin_languages_limit: 3
+          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot, vue, scala, c, c++, python, ejs
+          plugin_languages_details: lines, bytes-size, percentage
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_indepth: yes
+          plugin_languages_limit: 2
+          plugin_topics: yes
+          plugin_topics_limit: 0
+          plugin_topics_mode: icons
+          plugin_notable: yes
+          plugin_discussions: yes
+          plugin_anilist: yes
+          plugin_anilist_medias: anime
+          plugin_anilist_sections: favorites, characters
+          plugin_anilist_limit: 2
+          plugin_anilist_limit_characters: 22
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_fortune: yes
+          plugin_sponsors: yes
+          plugin_sponsors_past: yes
+          plugin_sponsorships: yes
+          plugin_sponsorships_sections: amount
+          plugin_splatoon: yes
+          plugin_splatoon_token: ${{ secrets.SPLATOON_TOKEN }}
+          plugin_splatoon_statink: yes
+          plugin_splatoon_statink_token: ${{ secrets.SPLATOON_STATINK_TOKEN }}
+          plugin_splatoon_sections: salmon-run
+          plugin_splatoon_salmon_limit: 2
+          extras_css: |
+            h2 { display: none !important; }
+            .match:not(:last-child) { padding-bottom: 4px; }
           output_action: commit
           committer_branch: main
+          committer_message: "Update GitHub metrics"
 
-      - name: 🔍 Check result
+      - name: 🔍 Debug - Check files
         run: |
-          echo "Checking if file was created:"
-          ls -la *.svg || echo "No SVG file found"
+          echo "Current directory:"
+          pwd
+          echo "Files in current directory:"
+          ls -la
+          echo "Looking for SVG files:"
+          find . -name "*.svg" -type f 2>/dev/null || echo "No SVG files found"
