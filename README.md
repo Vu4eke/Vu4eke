@@ -1,6 +1,6 @@
 <div align="center">
 
-# 👋 Hello, I'm Alexander!
+# 👋 Hello, I'm Egor!
 
 ### 🚀 Full-Stack Developer & Open Source Enthusiast
 
