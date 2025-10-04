@@ -82,9 +82,12 @@ jobs:
             h2 { display: none !important; }
             .match:not(:last-child) { padding-bottom: 4px; }
 
+      - name: 📂 List generated files
+        run: find . -name "*.svg" -type f
+
       - name: 📤 Upload metrics
         uses: actions/upload-artifact@v4
         with:
           name: metrics
-          path: "*.svg"
+          path: metrics_renders/*.svg
           retention-days: 1
