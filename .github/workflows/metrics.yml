@@ -1,58 +1,121 @@
 name: Metrics
 on:
-  schedule: [{cron: "0 16 * * *"}]
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
+
 jobs:
   metrics:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.METRICS_TOKEN }}
 
-      - name: 🦑 Generate metrics
+      - name: Generate metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.svg
+          # Основные настройки
           token: ${{ secrets.METRICS_TOKEN }}
-          base: header
-          base_indepth: yes
-          config_order: base.header, isocalendar, languages, notable, discussions, topics, anilist, achievements, sponsors, splatoon
+          user: Vu4eke
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Moscow
+          config_order: isocalendar, languages, habits, lines, followers, achievements
+          
+          # Внешний вид
+          config_display: large
+          config_padding: "0, 16, 8, 16"
+          config_animations: true
+          config_twemoji: true
+          
+          # Базовая информация
+          base_indepth: true
+          repositories: 100
+          repositories_forks: false
+          repositories_affiliations: owner, collaborator
+          
+          # Плагин: Изометрический календарь
           plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_isocalendar_style: classic
+          
+          # Плагин: Языки программирования
           plugin_languages: yes
-          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot, vue, scala, c, c++, python, ejs
-          plugin_languages_details: lines, bytes-size, percentage
-          plugin_languages_sections: most-used, recently-used
-          plugin_languages_indepth: yes
-          plugin_languages_limit: 2
-          plugin_topics: yes
-          plugin_topics_limit: 0
-          plugin_topics_mode: icons
-          plugin_notable: yes
-          plugin_discussions: yes
-          plugin_anilist: yes
-          plugin_anilist_medias: anime
-          plugin_anilist_sections: favorites, characters
-          plugin_anilist_limit: 2
-          plugin_anilist_limit_characters: 22
+          plugin_languages_limit: 10
+          plugin_languages_threshold: 0.5%
+          plugin_languages_analysis_timeout: 30
+          plugin_languages_categories: programming, markup, data
+          plugin_languages_sections: most-used
+          plugin_languages_colors: github
+          plugin_languages_aliases: "css: CSS, html: HTML, jupyter notebook: Jupyter"
+          
+          # Плагин: Привычки кодинга
+          plugin_habits: yes
+          plugin_habits_days: 21
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          plugin_habits_from: 500
+          plugin_habits_trim: yes
+          
+          # Плагин: Статистика кода
+          plugin_lines: yes
+          plugin_lines_history_limit: 3
+          plugin_lines_repositories_limit: 20
+          plugin_lines_categories: code, blanks, comments
+          plugin_lines_sections: repositories, categories, history
+          
+          # Плагин: Подписчики
+          plugin_followers: yes
+          plugin_followers_limit: 24
+          plugin_followers_avatars: yes
+          
+          # Плагин: Достижения
           plugin_achievements: yes
-          plugin_achievements_display: compact
-          plugin_fortune: yes
-          plugin_sponsors: yes
-          plugin_sponsors_past: yes
-          plugin_sponsorships: yes
-          plugin_sponsorships_sections: amount
-          plugin_splatoon: yes
-          plugin_splatoon_token: ${{ secrets.SPLATOON_TOKEN }}
-          plugin_splatoon_statink: yes
-          plugin_splatoon_statink_token: ${{ secrets.SPLATOON_STATINK_TOKEN }}
-          plugin_splatoon_sections: salmon-run
-          plugin_splatoon_salmon_limit: 2
-          extras_css: |
-            h2 { display: none !important; }
-            .match:not(:last-child) { padding-bottom: 4px; }
-          output_action: commit
-          committer_token: ${{ secrets.METRICS_TOKEN }}
-          committer_branch: main
-          committer_message: "Update GitHub metrics"
+          plugin_achievements_secrets: yes
+          plugin_achievements_display: detailed
+          plugin_achievements_limit: 0
+          plugin_achievements_threshold: C
+          
+          # Плагин: Активность
+          plugin_activity: yes
+          plugin_activity_limit: 10
+          plugin_activity_days: 14
+          plugin_activity_filter: all
+          plugin_activity_visibility: all
+          
+          # Плагин: Топ контрибуций
+          plugin_topics: yes
+          plugin_topics_limit: 16
+          plugin_topics_mode: starred
+          plugin_topics_sort: stars
+          
+          # Плагин: Статистика репозиториев
+          plugin_repositories: yes
+          plugin_repositories_limit: 12
+          plugin_repositories_features: stars, forks, languages
+          plugin_repositories_languages: yes
+          plugin_repositories_pinned: 6
+          
+          # Плагин: Gists
+          plugin_gists: yes
+          plugin_gists_limit: 8
+          
+          # Плагин: Статистика коммитов
+          plugin_commits: yes
+          plugin_commits_limit: 20
+          plugin_commits_auto: yes
+          plugin_commits_latest: yes
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "📊 Update metrics - $(date)" || exit 0
+          git push
