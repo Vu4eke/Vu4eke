@@ -112,6 +112,12 @@ jobs:
           plugin_commits_auto: yes
           plugin_commits_latest: yes
 
+          # Плагин: WakaTime
+          plugin_wakatime: yes
+          plugin_wakatime_token: ${{ secrets.WAKA_TOKEN }}
+          plugin_wakatime_sections: time, projects, languages, languages_graph, editors, os
+          plugin_wakatime_days: 365
+
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
