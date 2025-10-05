@@ -1,18 +1,14 @@
-# Soon
+<div align="center">
 
-<!--
-[<img align="left" width="390" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/general.svg">](#)
-[<img align="right" width="390" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/medias.svg?p">](#)
-[<img align="right" width="390" height="80" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/placeholder.svg">](#)
+# 👋 Hello, I'm Egor!
 
-[<img align="left" width="390" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/sponsors.svg">](https://github.com/sponsors/lowlighter)
-[<img align="right" width="390" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/achievements.svg">](#)
+### 🚀 Full-Stack Developer & Open Source Enthusiast
 
-[<img width="100%" height="1" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/placeholder.svg">](#)
+<div align="center">
 
-[<img align="right" alt="🦑" src="https://github.com/lowlighter/lowlighter/assets/22963968/f03a6539-5f5e-4e29-8cc5-8f2138660440">](#)
+## 📈 GitHub Statistics        ![Profile Views](https://komarev.com/ghpvc/?username=Vu4eke&color=blueviolet) ![Followers](https://img.shields.io/github/followers/Vu4eke?style=social)
 
+<!-- ВСТАВЬ ЭТУ СТРОКУ - ОНА ПОКАЖЕТ ВСЕ МЕТРИКИ ВМЕСТЕ В ОДНОМ ИЗОБРАЖЕНИИ -->
+![Metrics](https://raw.githubusercontent.com/Vu4eke/Vu4eke/main/github-metrics.svg)
 
-
-<sub>These infographics were generated using [lowlighter/metrics](https://github.com/lowlighter/metrics)</sub>
--->
+</div>
